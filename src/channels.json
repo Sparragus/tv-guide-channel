@@ -1,0 +1,38 @@
+[
+  {
+    "name": "The New York Times",
+    "initials": "NYT",
+    "url": "#",
+    "programs": []
+  },
+  {
+    "name": "El Nuevo Día",
+    "initials": "ENDI",
+    "url": "#",
+    "programs": []
+  },
+  {
+    "name": "Medium",
+    "initials": "M",
+    "url": "#",
+    "programs": []
+  },
+  {
+    "name": "Wikipedia - The Knowledge Channel",
+    "initials": "WIKI",
+    "url": "#",
+    "programs": []
+  },
+  {
+    "name": "Arts TV",
+    "initials": "ARTS",
+    "url": "#",
+    "programs": []
+  },
+  {
+    "name": "Best of Reddit",
+    "initials": "RDDT",
+    "url": "#",
+    "programs": []
+  }
+]

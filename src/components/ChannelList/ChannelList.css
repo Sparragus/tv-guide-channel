@@ -1,0 +1,11 @@
+.ChannelList {
+  background-color: lime;
+  overflow: hidden;
+  height: calc(3 * (4 * 5px + 3em));
+}
+
+.Channel {
+  background-color: rgba(56, 35, 186, 0.5);
+  border: 5px solid lightslategrey;
+  height: calc(4 * 5px + 3em);
+}
