@@ -4,10 +4,20 @@ import './ChannelList.css'
 
 class ChannelList extends Component {
   componentDidMount () {
-    this.scrollInterval = setInterval(this.scroll.bind(this), 2 * 6000)
+    this.startScrolling()
   }
 
   componentWillUnmount () {
+    this.stopScrolling()
+  }
+
+  startScrolling () {
+    setTimeout(this.scroll.bind(this))
+
+    this.scrollInterval = setInterval(this.scroll.bind(this), 2 * 6000)
+  }
+
+  stopScrolling () {
     clearInterval(this.scrollInterval)
   }
 
@@ -18,7 +28,14 @@ class ChannelList extends Component {
 
     const channelsUntilEnd = channels.length - (position + MAX_STEPS)
     const steps = Math.min(MAX_STEPS, channelsUntilEnd)
-    this.props.scroll(steps)
+
+    if (steps > 0) {
+      this.props.scroll(steps)
+    } else {
+      this.stopScrolling()
+      this.props.fetchChannels()
+      .then(() => this.startScrolling())
+    }
   }
 
   render () {

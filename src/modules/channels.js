@@ -19,7 +19,7 @@ export function fetch () {
   return dispatch => {
     dispatch(action(FETCH_START))
 
-    api.channels.fetch().then(
+    return api.channels.fetch().then(
       channels => dispatch(action(FETCH_SUCCESS, channels)),
       error => dispatch(action(FETCH_FAILURE, error))
     )
