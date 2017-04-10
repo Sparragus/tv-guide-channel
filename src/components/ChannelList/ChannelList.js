@@ -3,40 +3,8 @@ import React, { Component } from 'react'
 import './ChannelList.css'
 
 class ChannelList extends Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      position: 0
-    }
-  }
-
-  componentDidMount () {
-    this.scrollInterval = setInterval(
-      this.scroll.bind(this),
-      6000
-    )
-  }
-
-  componentWillUnmount () {
-    clearInterval(this.scrollInterval)
-  }
-
-  scroll () {
-    const { position } = this.state
-    const { channels } = this.props
-
-    const channelsUntilEnd = channels.length - position
-    const nextPosition = Math.min(3, channelsUntilEnd)
-
-    this.setState({
-      position: nextPosition
-    })
-  }
-
   render () {
-    const { position } = this.state
-    const { channels } = this.props
+    const { channels, position } = this.props
 
     return (
       <ul className='ChannelList unstyled'>

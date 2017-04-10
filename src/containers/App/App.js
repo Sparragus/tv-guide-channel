@@ -6,17 +6,22 @@ import ChannelList from '../../components/ChannelList'
 class App extends Component {
   componentDidMount () {
     this.props.fetchChannels()
+
+    this.positionInterval = setInterval(() => {
+      this.props.scroll(3)
+    }, 6000)
   }
 
   componentWillUnmount () {
+    clearInterval(this.positionInterval)
   }
 
   render () {
-    const { channels } = this.props
+    const { channels, position } = this.props
 
     return (
       <div className='App'>
-        <ChannelList channels={channels} />
+        <ChannelList channels={channels} position={position} />
       </div>
     )
   }
