@@ -12,8 +12,6 @@ class ChannelList extends Component {
   }
 
   startScrolling () {
-    setTimeout(this.scroll.bind(this))
-
     this.scrollInterval = setInterval(this.scroll.bind(this), 2 * 6000)
   }
 
@@ -71,21 +69,20 @@ function ListAutoScroller ({ position = 0, step = 1, direction = 'UP' }) {
 function Channel ({ channel = {} }) {
   const {
     name = 'Channel',
-    initials = 'CHNL',
     programs = []
   } = channel
 
   return (
     <div className='Channel'>
       <div className='ChannelInformation'>
-        {name}, {initials}
+        {name}
       </div>
 
       <ul className='ProgramList unstyled'>
         {
           programs.map((program, index) => (
             <li key={index}>
-              <div className='Program'>{program}</div>
+              <div className='Program'>{program.name}</div>
             </li>
           ))
         }
