@@ -5,6 +5,7 @@ import ChannelList from '../../components/ChannelList'
 
 class App extends Component {
   componentDidMount () {
+    this.props.fetchChannels()
   }
 
   componentWillUnmount () {

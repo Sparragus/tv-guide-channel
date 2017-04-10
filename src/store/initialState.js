@@ -1,7 +1,5 @@
-import channels from '../channels.json'
-
 const initialState = {
-  channels: channels,
+  channels: [],
   channelList: {
     position: 0
   }
