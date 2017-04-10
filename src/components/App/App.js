@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import './App.css'
-import ChannelList from '../../components/ChannelList'
+import ChannelList from '../ChannelList'
 
 class App extends Component {
   componentDidMount () {
