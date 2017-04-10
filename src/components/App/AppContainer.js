@@ -2,26 +2,12 @@ import { connect } from 'react-redux'
 
 import App from './App.js'
 
-import {
-  fetch as fetchChannels,
-  getChannels
-} from '../../modules/channels'
+import { fetch as fetchChannels } from '../../modules/channels'
 
-import {
-  getPosition,
-  scroll
-} from '../../modules/channelList'
-
-const selector = (state) => {
-  return {
-    channels: getChannels(state),
-    position: getPosition(state)
-  }
-}
+const selector = (state) => ({})
 
 const actions = {
-  fetchChannels,
-  scroll
+  fetchChannels
 }
 
 export default connect(selector, actions)(App)

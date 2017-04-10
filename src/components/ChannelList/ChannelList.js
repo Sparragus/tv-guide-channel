@@ -3,6 +3,24 @@ import React, { Component } from 'react'
 import './ChannelList.css'
 
 class ChannelList extends Component {
+  componentDidMount () {
+    this.scrollInterval = setInterval(this.scroll.bind(this), 2 * 6000)
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.scrollInterval)
+  }
+
+  scroll () {
+    const { channels, position } = this.props
+
+    const MAX_STEPS = 3
+
+    const channelsUntilEnd = channels.length - (position + MAX_STEPS)
+    const steps = Math.min(MAX_STEPS, channelsUntilEnd)
+    this.props.scroll(steps)
+  }
+
   render () {
     const { channels, position } = this.props
 

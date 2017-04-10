@@ -1,2 +1,2 @@
-import ChannelList from './ChannelList'
-export default ChannelList
+import ChannelListContainer from './ChannelListContainer'
+export default ChannelListContainer
