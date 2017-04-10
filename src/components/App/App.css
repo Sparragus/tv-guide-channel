@@ -1,0 +1,13 @@
+.App {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+
+  height: 100vh;
+  max-width: calc(1.33 * 100vh);
+}
+
+.Advertisements {
+  flex: 1 1 auto;
+  background-color: orange;
+}

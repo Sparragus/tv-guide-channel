@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import './ChannelList.css'
+import ProgramList from '../ProgramList'
 
 class ChannelList extends Component {
   componentDidMount () {
@@ -44,7 +45,7 @@ class ChannelList extends Component {
         <ListAutoScroller position={position} step='4 * 5px + 3em' />
         {
           channels.map((channel, index) => (
-            <li key={index}>
+            <li key={index} className='ChannelList-item'>
               <Channel channel={channel} />
             </li>
           ))
@@ -78,15 +79,7 @@ function Channel ({ channel = {} }) {
         {name}
       </div>
 
-      <ul className='ProgramList unstyled'>
-        {
-          programs.map((program, index) => (
-            <li key={index}>
-              <div className='Program'>{program.name}</div>
-            </li>
-          ))
-        }
-      </ul>
+      <ProgramList programs={programs} />
     </div>
   )
 }
