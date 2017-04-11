@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import './App.css'
 import ChannelList from '../ChannelList'
+import TimeBar from '../TimeBar'
 
 class App extends Component {
   componentDidMount () {
@@ -12,6 +13,7 @@ class App extends Component {
     return (
       <div className='App'>
         <div className='Advertisements' />
+        <TimeBar />
         <ChannelList />
       </div>
     )
