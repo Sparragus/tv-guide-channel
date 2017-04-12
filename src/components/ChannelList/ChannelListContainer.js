@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 import {
   fetch as fetchChannels,
   getChannels
-} from '../../modules/channels'
+} from '../../redux/modules/channels'
 
 import {
   getPosition,
   scroll
-} from '../../modules/channelList'
+} from '../../redux/modules/channelList'
 
 import ChannelList from './ChannelList'
 

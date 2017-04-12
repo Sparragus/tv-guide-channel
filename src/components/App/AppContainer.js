@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 
 import App from './App.js'
 
-import { fetch as fetchChannels } from '../../modules/channels'
+import { fetch as fetchChannels } from '../../redux/modules/channels'
 
 const selector = (state) => ({})
 
