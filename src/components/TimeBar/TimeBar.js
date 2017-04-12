@@ -1,39 +1,66 @@
 import React, { Component } from 'react'
+import moment from 'moment'
 
 class TimeBar extends Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      now: this._now()
-    }
-  }
-
   componentDidMount () {
-    this.updateNowInterval = setInterval(this.updateNow.bind(this), 1000)
+    this.updateInterval = setInterval(this.forceUpdate.bind(this), 1000)
   }
 
   componentWillUnmount () {
-    clearInterval(this.updateNowInterval)
+    clearInterval(this.updateInterval)
   }
 
-  updateNow () {
-    const now = this._now()
-    this.setState({ now })
+  timestamp (date) {
+    const format = 'h:mm:ss'
+    const timestamp = date.format(format)
+    return timestamp
   }
 
-  _now () {
-    const now = new Date()
-    const timestring = now.toTimeString().split(' ')[0]
-    return timestring
+  floorToZeroOrThirty (date) {
+    const minute = date.minute()
+    const lessThanThirty = minute < 30
+    const flooredMinute = lessThanThirty ? 0 : 30
+
+    const result = date.clone()
+    result.minute(flooredMinute)
+    result.second(0)
+
+    return result
+  }
+
+  nextHalfHours (length = 1) {
+    const result = []
+    const now = moment()
+
+    while (length--) {
+      result.push(
+        this.floorToZeroOrThirty(now)
+      )
+
+      now.add(30, 'minutes')
+    }
+
+    return result
   }
 
   render () {
-    const { now } = this.state
+    const now = moment()
+    const timestamp = this.timestamp(now)
+    const nextHalfHours = this.nextHalfHours(3)
 
     return (
       <div>
-        {now}
+        <div>
+          {timestamp}
+        </div>
+
+        {
+          nextHalfHours.map(date => (
+            <div key={date.format()}>
+              {date.format('h:mm')}
+            </div>
+          ))
+        }
       </div>
     )
   }
